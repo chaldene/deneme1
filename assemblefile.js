@@ -309,6 +309,19 @@ app.task('vendor-css', function() {
     .pipe(app.dest('public/assets/css'));
 });
 
+app.task('vendor-css-rtl', function() {
+  return app.src([
+      `${vnd}/bootstrap/css/bootstrap-rtl.min.css`,
+      `${vnd}/font-awesome/css/font-awesome.min.css`,
+      `${vnd}/animate.css/animate.min.css`,
+      `${vnd}/metismenu/metisMenu.min.css`,
+      `${vnd}/metis-canvas/metis-canvas.min.css`,
+      `${vnd}/loaders.css/loaders.min.css`
+    ])
+    .pipe(concat('vendor-rtl.css'))
+    .pipe(app.dest('public/assets/css'));
+});
+
 app.task('vendor-js', function() {
   return app.src([
       `${vnd}/jquery/jquery.min.js`,
