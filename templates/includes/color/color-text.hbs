@@ -1,0 +1,13 @@
+{{#if color}}
+<div class="u-flex u-flexWrap u-flexRow u-flexJustifyBetween">
+  {{#each color}}
+    <div class="u-sizeFillAlt p-a-15">
+      {{#is this "white"}}
+        <a href="#" class="f-6 p-a-5 bg-black text-{{.}}">{{.}}</a>
+      {{else}}
+      <a href="#" class="f-6 p-a-5 text-{{.}}">{{.}}</a>
+      {{/is}}
+    </div>
+  {{/each}}
+  </div>
+{{/if}}

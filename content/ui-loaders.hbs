@@ -1,0 +1,37 @@
+---
+title: Loaders
+category: ui
+---
+
+{{#each loaders}}
+  <div class="box">
+    <header class="b-b">
+      <h4>CSS Loaders <small>click <i class="fa fa-fw fa-lg fa-refresh"></i> icon on the right</small></h4>
+      <!-- BEGIN: box-tools -->
+      <div class="box-tools">
+        <a class="fa fa-fw fa-minus" href="#" data-box="collapse"></a>
+        <a class="fa fa-fw fa-square-o" href="#" data-fullscreen="box"></a>
+        <a class="fa fa-fw fa-refresh" href="#" data-box="refresh" data-loaders-type="{{.}}"></a>
+        <a class="fa fa-fw fa-times" href="#" data-box="close"></a>
+      </div>
+      <!-- END: box-tools -->
+    </header>
+    <div class="box-body collapse in">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, facere, quisquam. Dolor incidunt quod temporibus, officiis laboriosam, doloribus maiores voluptates accusamus totam asperiores ex, rerum natus adipisci inventore earum sapiente?
+      </p>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+{{/each}}
+
+<script>
+  Pace.on('done', function() {
+    if (window.inView !== undefined) {
+      inView('.box-body').on('enter', function(el) {
+        $(el).closest('.box').find('[data-box="refresh"]').click();
+      });
+    }
+  });
+</script>

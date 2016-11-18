@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>{{projectName}} - {{title}}</title>
+
+  <!-- Vendor stylesheet files. REQUIRED -->
+  <!-- BEGIN: Vendor  -->
+  <link rel="stylesheet" href="../assets/css/vendor.css">
+  <!-- END: core stylesheet files -->
+
+  <!-- Plugin stylesheet files. OPTIONAL -->
+  {{#is title "Calendar"}}
+  <link rel="stylesheet" href="../assets/vendor/fullcalendar/fullcalendar{{#if prod}}.min{{/if}}.css">
+  <link rel="stylesheet" href="../assets/vendor/fullcalendar/fullcalendar.print.css" media="print">
+  {{/is}}
+
+  {{#is title "Morris"}}
+  <link rel="stylesheet" href="../assets/vendor/morris.js/morris.css">
+  {{/is}}
+
+  {{#is title "Text Editor"}}
+    <link rel="stylesheet" href="../assets/vendor/bootstrap-wysiwyg/css/style.css">
+    <link rel="stylesheet" href="../assets/vendor/summernote/summernote.css">
+  {{/is}}
+
+  {{#is title "Form Advanced"}}
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "Form Wizard"}}
+  <link rel="stylesheet" href="../assets/vendor/jquery-steps/jquery.steps.css">
+  {{/is}}
+
+  {{#is title "Slider"}}
+    <link rel="stylesheet" href="../assets/vendor/bootstrap-slider/css/bootstrap-slider{{#if prod}}.min{{/if}}.css">
+    <link rel="stylesheet" href="../assets/vendor/ion-rangeslider/css/ion.rangeSlider.css">
+    <link rel="stylesheet" href="../assets/vendor/ion-rangeslider/css/ion.rangeSlider.skinFlat.css">
+  {{/is}}
+
+  {{#is title "Datatable"}}
+  <link rel="stylesheet" href="../assets/vendor/datatables/css/dataTables.bootstrap{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "Dashboard"}}
+  <link rel="stylesheet" href="../assets/vendor/jqvmap/jqvmap{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "Vector Map"}}
+  <link rel="stylesheet" href="../assets/vendor/jqvmap/jqvmap{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "File Upload"}}
+  <link rel="stylesheet" href="../assets/vendor/dropzone/dropzone{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "Mail Compose"}}
+  <link rel="stylesheet" href="../assets/vendor/dropzone/dropzone{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "Gallery"}}
+    <link rel="stylesheet" href="../assets/vendor/lightgallery/css/lightgallery{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#is title "Mail Read"}}
+    <link rel="stylesheet" href="../assets/vendor/lightgallery/css/lightgallery{{#if prod}}.min{{/if}}.css">
+  {{/is}}
+
+  {{#if dragula}}
+    <link rel="stylesheet" href="../assets/vendor/dragula/dragula{{#if prod}}.min{{/if}}.css">
+  {{/if}}
+
+  {{#if insignia}}
+    <link rel="stylesheet" href="../assets/vendor/insignia/insignia{{#if prod}}.min{{/if}}.css">
+  {{/if}}
+
+  {{#if quill}}
+    <link rel="stylesheet" href="../assets/vendor/quill/quill.bubble.css">
+    <link rel="stylesheet" href="../assets/vendor/quill/quill.snow.css">
+  {{/if}}
+
+  {{#if select2}}
+    <link rel="stylesheet" href="../assets/vendor/select2/css/select2{{#if prod}}.min{{/if}}.css">
+  {{/if}}
+
+  {{#if flatpickr}}
+    <link rel="stylesheet" href="../assets/vendor/flatpickr/flatpickr.min.css">
+  {{/if}}
+
+  {{#if ps}}
+    <link rel="stylesheet" href="../assets/vendor/perfect-scrollbar/perfect-scrollbar{{#if prod}}.min{{/if}}.css">
+  {{/if}}
+
+<!-- END: plugin stylesheet files -->
+
+<!-- Theme main stlesheet files. REQUIRED -->
+<link rel="stylesheet" href="../assets/css/elektron{{#if rtl}}-rtl{{/if}}{{#if prod}}.min{{/if}}.css">
+<link id="theme-list" rel="stylesheet" href="../assets/css/theme-peter-river{{#if rtl}}-rtl{{/if}}{{#if prod}}.min{{/if}}.css">
+<!-- END: theme main stylesheet files -->
+
+<!-- begin pace.js  -->
+<link rel="stylesheet" href="../assets/vendor/pace/themes/blue/pace-theme-minimal.css">
+<script src="../assets/vendor/pace/pace{{#if prod}}.min{{/if}}.js"></script>
+<!-- END: pace.js  -->
+
+{{#unless demo}}
+<!-- theme-switcher stylesheet files. NOT REQUIRED -->
+<link rel="stylesheet" href="../assets/css/theme-switcher{{#if rtl}}-rtl{{/if}}{{#if prod}}.min{{/if}}.css">
+<!-- END: theme-switcher stylesheet file. -->
+
+<link rel="stylesheet" href="../assets/vendor/highlight/styles/atom-one-dark.css">
+{{/unless}}
+
+
+</head>
+<body {{#if rtl}}dir="rtl"{{/if}}>
+  <!-- begin .app -->
+  <div class="app">
+    <!-- begin .app-wrap -->
+    <div class="app-wrap">
+    {% body %}
+    </div>
+    <!-- END: .app-wrap -->
+  </div>
+  <!-- END: .app -->
+
+  {{> totop}}
+
+  {{#unless demo}}
+    {{> theme-switcher}}
+  {{/unless}}
+
+  <!-- Vendor javascript files. REQUIRED -->
+  <script src="../assets/js/vendor.js"></script>
+  <!-- END: End javascript files -->
+
+  <!-- Plugin javascript files. OPTIONAL -->
+
+  {{#if moment}}
+    <script src="../assets/vendor/moment/locales{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#is title "Dashboard"}}
+    <script src="../assets/vendor/waypoints/jquery.waypoints{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/counterup/jquery.counterup{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/jqvmap/jquery.vmap{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/jqvmap/jquery.vmap.sampledata.js"></script>
+    <script src="../assets/vendor/jqvmap/maps/jquery.vmap.usa.js"></script>
+  {{/is}}
+
+  {{#if flatpickr}}
+    <script src="../assets/vendor/flatpickr/flatpickr{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if ps}}
+    <script src="../assets/vendor/perfect-scrollbar/perfect-scrollbar.jquery{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#is title "Calendar"}}
+    <script src="../assets/vendor/jquery-ui/jquery-ui{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/fullcalendar/fullcalendar{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Flot"}}
+    <script src="../assets/vendor/flot/jquery.flot.js"></script>
+  {{/is}}
+
+  {{#is title "Morris"}}
+    <script src="../assets/vendor/raphael/raphael{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/morris.js/morris{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Inline Chart"}}
+    <script src="../assets/vendor/jquery-knob/jquery.knob{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/jquery-sparkline/jquery.sparkline{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Text Editor"}}
+    <script src="../assets/vendor/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="../assets/vendor/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../assets/vendor/summernote/summernote{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Form Advanced"}}
+    <script src="../assets/vendor/cleave.js/cleave{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/cleave.js/addons/cleave-phone.us.js"></script>
+    <script src="../assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Form Wizard"}}
+    <script src="../assets/vendor/jquery-validation/jquery.validate{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/jquery-steps/jquery.steps{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Slider"}}
+    <script src="../assets/vendor/bootstrap-slider/bootstrap-slider{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/ion-rangeslider/js/ion.rangeSlider{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Datatable"}}
+    <script src="../assets/vendor/datatables/js/jquery.dataTables{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/datatables/js/dataTables.bootstrap{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Vector Map"}}
+    <script src="../assets/vendor/jqvmap/jquery.vmap{{#if prod}}.min{{/if}}.js"></script>
+    <script src="../assets/vendor/jqvmap/jquery.vmap.sampledata.js"></script>
+    <script src="../assets/vendor/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="../assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="../assets/vendor/jqvmap/maps/jquery.vmap.europe.js"></script>
+    <script src="../assets/vendor/jqvmap/maps/jquery.vmap.germany.js"></script>
+  {{/is}}
+
+  {{#is title "File Upload"}}
+    <script src="../assets/vendor/dropzone/dropzone{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Mail Compose"}}
+    <script src="../assets/vendor/dropzone/dropzone{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Widgets"}}
+    <script src="../assets/vendor/countdown/jquery.countdown{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Gallery"}}
+    <script src="../assets/vendor/lightgallery/js/lightgallery-all{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#is title "Mail Read"}}
+    <script src="../assets/vendor/lightgallery/js/lightgallery-all{{#if prod}}.min{{/if}}.js"></script>
+  {{/is}}
+
+  {{#if dragula}}
+    <script src="../assets/vendor/dragula/dragula{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if chartjs}}
+    <script src="../assets/vendor/chart.js/Chart{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if clipboard}}
+    <script src="../assets/vendor/clipboard/clipboard{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if noty}}
+    <script src="../assets/vendor/noty/jquery.noty.packaged{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if autosize}}
+    <script src="../assets/vendor/autosize/autosize{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if insignia}}
+    <script src="../assets/vendor/insignia/insignia{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if quill}}
+    <script src="../assets/vendor/quill/quill{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if select2}}
+    <script src="../assets/vendor/select2/js/select2.full{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if tablesorter}}
+    <script src="../assets/vendor/tablesorter/js/jquery.tablesorter{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+  {{#if googleMap}}
+  <script src="https://maps.googleapis.com/maps/api/js?key={{#if prod}}AIzaSyDRLZMC3Mb8tnZifz7uYxMp1bybEJ7_5as{{else}}YOUR_API_KEY{{/if}}"></script>
+  <script src="../assets/vendor/gmaps/gmaps{{#if prod}}.min{{/if}}.js"></script>
+  {{/if}}
+
+<!-- END: plugin javascript files -->
+
+{{#if vendorjs}}
+  {{#each vendorjs}}
+    <script src="../assets/vendor/{{.}}"></script>
+  {{/each}}
+{{/if}}
+
+<!-- Demo javascript files. NOT REQUIRED -->
+
+<!-- END: demo javascript files -->
+
+<script src="../assets/js/elektron{{#if prod}}.min{{/if}}.js"></script>
+<script src="../assets/js/elektron-demo{{#if prod}}.min{{/if}}.js"></script>
+
+
+  {{#if demofunctions}}
+  <!-- initialize demo javascript function. OPTIONAL -->
+  <script>
+    Pace.on('done', function() {
+      {{#each demofunctions}}
+        {{.}}
+      {{/each}}
+    });
+  </script>
+  <!-- END: demo javascript functions -->
+  {{/if}}
+
+{{#unless demo}}
+<!-- theme-switcher scripts file. NOT REQUIRED -->
+<script src="../assets/js/theme-switcher{{#if prod}}.min{{/if}}.js"></script>
+<!-- END: theme-switcher scripts file. -->
+
+<script src="../assets/vendor/highlight/highlight.pack.js"></script>
+<script>
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+{{/unless}}
+</body>
+
+</html>

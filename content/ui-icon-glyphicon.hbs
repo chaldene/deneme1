@@ -1,0 +1,40 @@
+---
+title: Glyphicons
+category: ui
+subcategory: icons
+clipboard: true
+noty: true
+---
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="u-flex u-flexRow u-flexWrap">
+    {{#each glyphicons}}
+        <div class="u-sizeFillAlt p-a-15 m-a-5 text-center bg-white b-a b-silver inview">
+          <button class="btn btn-default" type="button" data-clipboard-text="glyphicon {{.}}">
+              <i class="glyphicon {{.}}"></i>
+          </button>
+          <p>
+            {{.}}
+          </p>
+        </div>
+    {{/each}}
+    </div>
+  </div>
+</div>
+
+<script>
+  Pace.on('done', function() {
+    var clipboard = new Clipboard('.btn');
+    clipboard.on('success', function(e) {
+      noty({
+        text: 'Font classes <strong class="text-alizarin">('+e.text+')</strong> copied to clipboard',
+        layout: 'topRight',
+        type: 'success',
+        theme: 'relax',
+        timeout: 3000
+      });
+      e.clearSelection();
+    });
+  });
+</script>

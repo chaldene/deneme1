@@ -1,0 +1,36 @@
+---
+title: Form Wizard
+category: forms
+demofunctions:
+- Elk.wizard();
+---
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <header>
+        <h4>Basic Wizard <a href="http://www.jquery-steps.com/" target="_blank">
+            <i class="fa fa-book"></i>
+          </a>
+        </h4>
+      {{> box-tools}}
+      </header>
+      <div class="box-body collapse in">
+        {{> form-wizard-basic}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <header>
+        <h4>Validation Wizard Form <small>This example show how to use Steps with jQuery Validation plugin.</small> </h4>
+        {{> box-tools}}
+      </header>
+      <div class="box-body collapse in">
+        {{> form-wizard-advanced}}
+      </div>
+    </div>
+  </div>
+</div>

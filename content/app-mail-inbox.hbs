@@ -1,0 +1,26 @@
+---
+title: Mail Inbox
+category: app
+subcategory: mail
+hasColumn: true
+quill: true
+insignia: true
+---
+<!-- BEGIN: .column.is-fixed -->
+<div class="column is-fixed bg-white shadow-2dp ps m-r-15" id=email-left>
+  {{> mail-left}}
+</div>
+<!-- END: .column.is-fixed -->
+
+<!-- BEGIN: .column -->
+<div class="column bg-white is-flexible shadow-2dp ps">
+
+  <!-- BEGIN: .container-fluid -->
+  <div class="container-fluid">
+    {{> mail-right-inbox}}
+  </div>
+<!-- END: .container-fluid -->
+</div>
+<!-- END: .column -->
+
+{{> modal-mail-compose}}
