@@ -1,0 +1,11 @@
+/content/**
+/less/**
+/public/**
+/node_modules/**
+/bower_components/**
+/src/**
+/templates/**
+/.git/**
+/tmp/**
+assemblefile.js
+assets.js

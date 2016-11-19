@@ -96,27 +96,11 @@ ps: true
         </div>
       </header>
       <div class="box-body">
-        <ul class="members">
-
-          {{#each db.users}}
-          {{#compare id "<" 6}}
-            <li class="member">
-              <div class="member-media">
-                <a class="member-media-link" href="#">
-                  <img class="member-media-img" src="../assets/img/{{#ifEven id }}w{{else}}m{{/ifEven}}{{id}}.jpg" alt="{{username}}">
-                  <span class='member-status {{#ifEven id }}is-active{{/ifEven}}'></span>
-                </a>
-              </div>
-              <div class="member-info">
-                <h4 class="member-name">{{name}}</h4>
-                <div class="member-skills">{{company.catchPhrase}}</div>
-              </div>
-            </li>
-            <!-- /.member -->
-            {{/compare}}
-          {{/each}}
-
-        </ul>
+{{#if demo}}
+  {{> member-demo}}
+{{else}}
+  {{> member}}
+{{/if}}
       </div>
     </div>
   </div>

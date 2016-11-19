@@ -195,65 +195,49 @@ app.task('content', ['content-*']);
 
 app.task('css:ltr', function() {
 
-  if (app.options.prod) {
-    return app.src(['./less/elektron.less', './less/theme-*.less'])
-      .pipe(less())
-      .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-      .pipe(cssnano({
-        zindex: false
-      }))
-      .pipe(rename({
-        suffix: '.min'
-      }))
-      .pipe(header(banner, {
-        pkg
-      }))
-      .pipe(app.dest('./public/assets/css'));
-  } else {
-    return app.src(['./less/elektron.less', './less/theme-*.less'])
-      .pipe(less())
-      .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-      .pipe(header(banner, {
-        pkg
-      }))
-      .pipe(app.dest('./public/assets/css'));
-  }
+  return app.src(['./less/elektron.less', './less/theme-*.less'])
+    .pipe(less())
+    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(header(banner, {
+      pkg
+    }))
+    .pipe(app.dest('./public/assets/css'))
+    .pipe(cssnano({
+      zindex: false
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(header(banner, {
+      pkg
+    }))
+    .pipe(app.dest('./public/assets/css'));
 
 });
 
 app.task('css:rtl', function() {
 
-  if (app.options.prod) {
-    return app.src(['./less/elektron.less', './less/theme-*.less'])
-      .pipe(less())
-      .pipe(rtlcss())
-      .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-      .pipe(rename({
-        suffix: '-rtl'
-      }))
-      .pipe(cssnano({
-        zindex: false
-      }))
-      .pipe(rename({
-        suffix: '.min'
-      }))
-      .pipe(header(banner, {
-        pkg
-      }))
-      .pipe(app.dest('./public/assets/css'));
-  } else {
-    return app.src(['./less/elektron.less', './less/theme-*.less'])
-      .pipe(less())
-      .pipe(rtlcss())
-      .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-      .pipe(header(banner, {
-        pkg
-      }))
-      .pipe(rename({
-        suffix: '-rtl'
-      }))
-      .pipe(app.dest('./public/assets/css'));
-  }
+  return app.src(['./less/elektron.less', './less/theme-*.less'])
+    .pipe(less())
+    .pipe(rtlcss())
+    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(header(banner, {
+      pkg
+    }))
+    .pipe(rename({
+      suffix: '-rtl'
+    }))
+    .pipe(app.dest('./public/assets/css'))
+    .pipe(cssnano({
+      zindex: false
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(header(banner, {
+      pkg
+    }))
+    .pipe(app.dest('./public/assets/css'));
 
 });
 
@@ -270,29 +254,23 @@ app.task('css:bs-rtl-min', function() {
     .pipe(app.dest('./public/assets/vendor/bootstrap/css/'));
 });
 
-app.task('css', ['css:ltr', 'css:rtl', 'css:bs-*'], function() {});
+app.task('css', ['css:ltr', 'css:rtl', 'css:bs-*']);
 
-app.task('javascript', function() {
-
-  if (app.options.prod) {
-    return app.src(['./js/*.js'])
-      .pipe(babel())
-      .pipe(uglify())
-      .pipe(header(banner, {
-        pkg
-      }))
-      .pipe(rename({
-        suffix: '.min'
-      }))
-      .pipe(app.dest('public/assets/js'));
-  } else {
-    return app.src(['./js/*.js'])
-      .pipe(babel())
-      .pipe(header(banner, {
-        pkg
-      }))
-      .pipe(app.dest('public/assets/js'));
-  }
+app.task('js', function() {
+  return app.src(['./js/*.js'])
+    .pipe(babel())
+    .pipe(header(banner, {
+      pkg
+    }))
+    .pipe(app.dest('public/assets/js'))
+    .pipe(uglify())
+    .pipe(header(banner, {
+      pkg
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(app.dest('public/assets/js'));
 });
 
 
@@ -377,7 +355,7 @@ app.task('copy', function() {
   });
 });
 
-app.task('build', ['content', 'css', 'javascript'], function() {});
+app.task('build', ['home' ,'content', 'css', 'js', 'vendor'], function() {});
 
 app.task('default', [
   'build', 'serve'
@@ -391,7 +369,7 @@ function watch() {
   app.watch(path.join(__dirname, './home.hbs'), ['home']);
   app.watch(path.join(__dirname, './content/**/*.hbs'), ['content']);
   app.watch(path.join(__dirname, './less/**/*.less'), ['css:ltr', 'css:rtl']);
-  app.watch(path.join(__dirname, './js/*.js'), ['javascript']);
+  app.watch(path.join(__dirname, './js/*.js'), ['js']);
 }
 
 module.exports = app;

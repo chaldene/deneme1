@@ -1,11 +1,10 @@
-'use strict';
 if (typeof jQuery === 'undefined') {
   throw new Error('Theme\'s JavaScript requires jQuery');
 }
 
 var Momentum = {
 
-  clock: function(element) {
+  clock: function clock(element) {
     var attrData = $.extend({}, $(element).data());
     var format = attrData.format !== undefined
       ? attrData.format
@@ -24,7 +23,7 @@ var Momentum = {
     displayTime();
   },
 
-  relative: function(element) {
+  relative: function relative(element) {
     var attrData = $.extend({}, $(element).data());
     var time = moment(attrData.time).isValid()
       ? attrData.time
@@ -39,15 +38,15 @@ var Momentum = {
 
 };
 
-$(document).on("elk.momentum", function() {
-  $("[data-momentum]").each(function() {
-    window.moment !== undefined && $(this).is(":visible") && Momentum[$(this).attr("data-momentum")](this);
+$(document).on('elk.momentum', function() {
+  $('[data-momentum]').each(function() {
+    window.moment !== undefined && $(this).is(':visible') && Momentum[$(this).attr('data-momentum')](this);
   });
-}).trigger("elk.momentum");
+}).trigger('elk.momentum');
 
 var Charty = {
 
-  pie: function(element) {
+  pie: function pie(element) {
     var attrData = $.extend({}, $(element).data());
     new Chart(element, {
       type: 'pie',
@@ -62,7 +61,7 @@ var Charty = {
       },
       options: {
         legend: {
-          display: eval(attrData.legend)
+          display: String(attrData.legend) === 'true',
         }
       }
     });
@@ -82,9 +81,9 @@ var Charty = {
         ]
       },
       options: {
-        cutoutPercentage: eval(attrData.cutoutPercentage) || 50,
+        cutoutPercentage: Number(attrData.cutoutPercentage) || 50,
         legend: {
-          display: eval(attrData.legend)
+          display: String(attrData.legend) === 'true',
         }
       }
     });
@@ -108,7 +107,7 @@ var Charty = {
       },
       options: {
         legend: {
-          display: eval(attrData.legend)
+          display: String(attrData.legend) === 'true',
         },
         scales: {
           yAxes: [
@@ -140,7 +139,7 @@ var Charty = {
       },
       options: {
         legend: {
-          display: eval(attrData.legend)
+          display: String(attrData.legend) === 'true',
         },
         scales: {
           yAxes: [
@@ -153,7 +152,7 @@ var Charty = {
     });
   },
 
-  statline: function(element) {
+  statline: function statline(element) {
     var attrData = $.extend({}, $(element).data());
 
     new Chart(element, {
@@ -198,7 +197,7 @@ var Charty = {
     });
   },
 
-  statarea: function(element) {
+  statarea: function statarea(element) {
     var attrData = $.extend({}, $(element).data());
 
     new Chart(element, {
@@ -244,11 +243,11 @@ var Charty = {
   }
 };
 
-$(document).on("elk.charty", function() {
-  $("[data-charty]").each(function() {
-    window.Chart !== undefined && $(this).is(":visible") && Charty[$(this).attr("data-charty")](this);
+$(document).on('elk.charty', function() {
+  $('[data-charty]').each(function() {
+    window.Chart !== undefined && $(this).is(':visible') && Charty[$(this).attr('data-charty')](this);
   });
-}).trigger("elk.charty");
+}).trigger('elk.charty');
 
 var FullScreen = {
 
@@ -270,11 +269,11 @@ var FullScreen = {
 
 };
 
-$(document).on("elk.fullscreen", function() {
-  $("[data-fullscreen]").each(function() {
-    window.screenfull !== undefined && screenfull.enabled && $(this).is(":visible") && FullScreen[$(this).attr("data-fullscreen")](this);
+$(document).on('elk.fullscreen', function() {
+  $('[data-fullscreen]').each(function() {
+    window.screenfull !== undefined && screenfull.enabled && $(this).is(':visible') && FullScreen[$(this).attr('data-fullscreen')](this);
   });
-}).trigger("elk.fullscreen");
+}).trigger('elk.fullscreen');
 
 var Side = {
 
@@ -315,25 +314,24 @@ var Side = {
 
 };
 
-$(document).on("elk.side", function() {
+$(document).on('elk.side', () => {
   Side.responsive();
-  var _cb;
-  $(window).on('resize', function() {
-    _cb = setTimeout(Side.responsive, 100);
+  $(window).on('resize', () => {
+    setTimeout(Side.responsive, 100);
   });
 
-  $("[data-side]").each(function() {
-    Side[$(this).attr("data-side")](this);
+  $('[data-side]').each(function() {
+    Side[$(this).attr('data-side')](this);
   });
-}).trigger("elk.side");
+}).trigger('elk.side');
 
 var Box = {
 
-  collapse: function(element) {
+  collapse: function collapse(element) {
     $(element).on('click', function(event) {
       event.preventDefault();
       var $toggleButtonImage = $(this).children('i.fa');
-      var _box = $(this).closest(".box");
+      var _box = $(this).closest('.box');
       if (_box.has('.box-body')) {
         _box.children('.box-body').on('show.bs.collapse', function() {
           $(element).removeClass('fa-minus fa-plus').addClass('fa-spinner fa-spin');
@@ -348,16 +346,16 @@ var Box = {
     });
   },
 
-  close: function(element) {
+  close: function close(element) {
     $(element).on('click', function(event) {
       event.preventDefault();
-      $(this).closest(".box").hide("slow");
+      $(this).closest('.box').hide('slow');
     });
   },
 
-  refresh: function (element){
+  refresh: function refresh(element){
     var attrData = $.extend({}, $(element).data());
-    var boxBody = $(element).closest(".box").children('.box-body');
+    var boxBody = $(element).closest('.box').children('.box-body');
     var loaderContainer = $('<div />').addClass('loader hidden');
 
     var loaderType = attrData.loadersType || 'ball-scale-ripple-multiple';
@@ -366,7 +364,7 @@ var Box = {
     loaderContainer.append(loaders);
     boxBody.append(loaderContainer);
 
-    $(element).on('click', function(event) {
+    $(element).on('click', function (event) {
       event.preventDefault();
       $(element).addClass('fa-spin');
       boxBody.addClass('loaderContainer');
@@ -380,11 +378,11 @@ var Box = {
   }
 };
 
-$(document).on("elk.box", function() {
-  $("[data-box]").each(function() {
-    $(this).is(":visible") && Box[$(this).attr("data-box")](this);
+$(document).on('elk.box', function() {
+  $('[data-box]').each(function() {
+    $(this).is(':visible') && Box[$(this).attr('data-box')](this);
   });
-}).trigger("elk.box");
+}).trigger('elk.box');
 
 var Pluggin = {
   counterup: function() {
@@ -552,15 +550,15 @@ var Pluggin = {
     $(element).on('click', function(event) {
       var _body = $('body');
       event.preventDefault();
-      _body.hasClass("page-fixed")
-        ? _body.hasClass("main-fixed")
-          ? $(".main-content").animate({
+      _body.hasClass('page-fixed')
+        ? _body.hasClass('main-fixed')
+          ? $('.main-content').animate({
             scrollTop: 0
           }, 600)
-          : $(".app-main").animate({
+          : $('.app-main').animate({
             scrollTop: 0
           }, 600)
-        : $("body,html").animate({
+        : $('body,html').animate({
           scrollTop: 0
         }, 600);
     });
@@ -589,7 +587,7 @@ var Pluggin = {
   }
 };
 
-$(document).on("elk.plugin", function() {
+$(document).on('elk.plugin', function() {
   if ($('.counterup').length) {
     Pluggin.counterup({
       delay: 10,
@@ -611,7 +609,7 @@ $(document).on("elk.plugin", function() {
     $('.nav-mega .nav-full-item').addClass('collapse');
     Pluggin.navmega();
   }
-  $("[data-plugin]").each(function() {
-    Pluggin[$(this).attr("data-plugin")](this);
+  $('[data-plugin]').each(function() {
+    Pluggin[$(this).attr('data-plugin')](this);
   });
-}).trigger("elk.plugin");
+}).trigger('elk.plugin');
