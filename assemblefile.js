@@ -16,7 +16,6 @@ var header = require('gulp-header');
 var gulpif = require('gulp-if');
 var helpers = require('handlebars-helpers');
 var prettify = require('gulp-prettify');
-var htmlmin = require('gulp-htmlmin');
 var pkg = require('./package.json');
 var assets = require('./assets');
 
@@ -79,15 +78,7 @@ function contentBuild(dest) {
   return app.toStream('pages')
     .pipe(app.renderFile())
     .on('err', console.error)
-    .pipe(app.options.prod ?
-      htmlmin({
-        collapseWhitespace: true,
-        removeComments: true,
-        removeOptionalTags: true,
-        removeAttributeQuotes: true,
-        minifyJS: true,
-        useShortDoctype: true
-      }) :
+    .pipe(
       prettify({
         indent_inner_html: false,
         preserve_newlines: true,
@@ -110,15 +101,7 @@ app.task('home', ['init'], function() {
   return app.toStream('home')
     .pipe(app.renderFile())
     .on('err', console.error)
-    .pipe(app.options.prod ?
-      htmlmin({
-        collapseWhitespace: true,
-        removeComments: true,
-        removeOptionalTags: true,
-        removeAttributeQuotes: true,
-        minifyJS: true,
-        useShortDoctype: true
-      }) :
+    .pipe(
       prettify({
         indent_inner_html: false,
         preserve_newlines: true,
