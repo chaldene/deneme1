@@ -67,7 +67,7 @@
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
-    "assemble": "^0.17.1",
+    "assemble": "^0.24.3",
     "babel-preset-latest": "^6.16.0",
     "base-watch": "^0.1.3",
     "browser-sync": "^2.17.5",
