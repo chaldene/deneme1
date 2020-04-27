@@ -37,12 +37,12 @@ app.use(basewatch());
 
 app.task('init', function(cb) {
   var demo = app.options.demo;
-  var projectName = 'Acme';
+  var projectName = 'Chaldene';
   var imgExt = 'svg';
 
   if (!demo) {
-    imgExt = 'jpg';
-    projectName = pkg.name;
+    imgExt = 'svg';
+    projectName = 'Chaldene';
   }
   app.data({
     topNav: false

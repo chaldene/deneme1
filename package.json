@@ -1,7 +1,7 @@
 {
-  "name": "Elektron",
-  "version": "1.0.0",
-  "description": "Bootstrap 3 Based Admin Toolkit",
+  "name": "chaldene",
+  "version": "0.2.0",
+  "description": "Bootstrap 4 Based Admin Toolkit",
   "private": true,
   "author": "themno",
   "dependencies": {
