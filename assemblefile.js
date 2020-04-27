@@ -18,11 +18,9 @@ var helpers = require('handlebars-helpers');
 var prettify = require('gulp-prettify');
 var htmlmin = require('gulp-htmlmin');
 var pkg = require('./package.json');
-var bower = require('./bower.json');
 var assets = require('./assets');
 
 var nmd = 'node_modules';
-var bcd = 'bower_components';
 var vnd = 'public/assets/vendor';
 
 var banner = [
@@ -69,7 +67,6 @@ app.task('init', function(cb) {
   app.helper('md', require('helper-md').sync);
   app.data(['./templates/data/**/*.json']);
   app.data('pkg', pkg);
-  app.data('bower', bower);
   app.layouts(path.join(__dirname, './templates/layouts/**/*.hbs'));
   app.partials(path.join(__dirname, './templates/includes/**/*.hbs'));
   app.pages(path.join(__dirname, './content/**/*.hbs'));
