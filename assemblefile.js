@@ -245,7 +245,7 @@ app.task('vendor-css', function() {
       `${vnd}/font-awesome/css/font-awesome.min.css`,
       `${vnd}/animate.css/animate.min.css`,
       `${vnd}/metismenu/metisMenu.min.css`,
-      `${vnd}/onoffcanvas/onoffcanvas.min.css`,
+      `${vnd}/metis-canvas/metis-canvas.min.css`,
       `${vnd}/loaders.css/loaders.min.css`
     ])
     .pipe(concat('vendor.css'))
@@ -258,7 +258,7 @@ app.task('vendor-css-rtl', function() {
       `${vnd}/font-awesome/css/font-awesome.min.css`,
       `${vnd}/animate.css/animate.min.css`,
       `${vnd}/metismenu/metisMenu.min.css`,
-      `${vnd}/onoffcanvas/onoffcanvas.min.css`,
+      `${vnd}/metis-canvas/metis-canvas.min.css`,
       `${vnd}/loaders.css/loaders.min.css`
     ])
     .pipe(concat('vendor-rtl.css'))
@@ -271,8 +271,8 @@ app.task('vendor-js', function() {
       `${vnd}/bootstrap/js/bootstrap.min.js`,
       `${vnd}/moment/moment.min.js`,
       `${vnd}/metismenu/metisMenu.min.js`,
-      `${vnd}/onoffcanvas/onoffcanvas.min.js`,
-      `${vnd}/screenfull/screenfull.min.js`,
+      `${vnd}/metis-canvas/metis-canvas.min.js`,
+      `${vnd}/screenfull/screenfull.js`,
       `${vnd}/loaders.css/loaders.css.js`,
       `${vnd}/in-view/in-view.min.js`
     ])
