@@ -86,9 +86,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rtlcss": "^1.0.0",
     "gulp-uglify": "^2.0.0",
-    "handlebars-helpers": "^0.7.5",
-    "helper-markdown": "^0.2.1",
-    "helper-md": "^0.2.1"
+    "handlebars-helpers": "^0.10.0"
   },
   "scripts": {
     "start": "assemble",

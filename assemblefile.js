@@ -35,8 +35,6 @@ var app = assemble();
 app.create('home');
 app.use(basewatch());
 
-var markdown = require('helper-markdown');
-
 app.task('init', function(cb) {
   var demo = app.options.demo;
   var projectName = 'Acme';
@@ -61,9 +59,8 @@ app.task('init', function(cb) {
   app.helper('date', helpers.date());
   app.helper('html', helpers.html());
   app.helper('object', helpers.object());
-  app.helper('compare', helpers.comparison());
-  app.helper('markdown', markdown);
-  app.helper('md', require('helper-md').sync);
+  app.helper('comparison', helpers.comparison());
+  app.helper('markdown', helpers.markdown());
   app.data(['./templates/data/**/*.json']);
   app.data('pkg', pkg);
   app.layouts(path.join(__dirname, './templates/layouts/**/*.hbs'));
