@@ -2,7 +2,6 @@
 const assemble = require('assemble');
 
 const nmd = 'node_modules';
-const bcd = 'bower_components';
 const vnd = 'public/assets/vendor';
 
 const app = assemble();
@@ -16,28 +15,28 @@ app.task('copy', ['copy-*']);
 app.task('copy-lib', () => app.copy('src/scripts/**/*.*', `${vnd}`));
 
 /**
- * copy from bower_components
- */
-
-app.task('copy-bootstrap-touchspin', () => app.copy(`${bcd}/bootstrap-touchspin/dist/*.*`, `${vnd}/bootstrap-touchspin`));
-
-app.task('copy-datatables', () => app.copy(`${bcd}/datatables/media/**/*.*`, `${vnd}/datatables`));
-
-app.task('copy-flot', () => app.copy(`${bcd}/flot/jquery.*.js`, `${vnd}/flot`));
-
-app.task('copy-screenfull', () => app.copy(`${bcd}/screenfull/dist/*.*`, `${vnd}/screenfull`));
-
-app.task('copy-jquery-validation', () => app.copy(`${bcd}/jquery-validation/dist/*.*`, `${vnd}/jquery-validation`));
-
-app.task('copy-knob', () => app.copy([
-  `${bcd}/jquery-knob/js/*.*`, `${bcd}/jquery-knob/dist/*.*`,
-], `${vnd}/jquery-knob`));
-
-app.task('copy-counterup', () => app.copy(`${bcd}/counterup/*.js`, `${vnd}/counterup`));
-
-/**
  * copy from node_modules
  */
+
+app.task('copy-jqueryui', () => app.copy(`${nmd}/components-jqueryui/*.js`, `${vnd}/jquery-ui`));
+
+app.task('copy-counterup', () => app.copy(`${nmd}/counterup/*.js`, `${vnd}/counterup`));
+
+app.task('copy-knob', () => app.copy([
+  `${nmd}/jquery-knob/js/*.*`, `${nmd}/jquery-knob/dist/*.*`,
+], `${vnd}/jquery-knob`));
+
+app.task('copy-jquery-validation', () => app.copy(`${nmd}/jquery-validation/dist/*.*`, `${vnd}/jquery-validation`));
+
+app.task('copy-flot', () => app.copy(`${nmd}/flot/dist/es5/jquery.*.js`, `${vnd}/flot`));
+
+app.task('copy-datatables', () => app.copy(`${nmd}/datatables/media/**/*.*`, `${vnd}/datatables`));
+
+app.task('copy-bootstrap-touchspin', () => app.copy(`${nmd}/bootstrap-touchspin/dist/*.*`, `${vnd}/bootstrap-touchspin`));
+
+app.task('copy-screenfull', () => app.copy(`${nmd}/screenfull/dist/*.js`, `${vnd}/screenfull`));
+
+app.task('copy-onoffcanvas', () => app.copy(`${nmd}/onoffcanvas/dist/onoffcanvas.*`, `${vnd}/onoffcanvas`));
 
 app.task('copy-push.js', () => app.copy(`${nmd}/push.js/{push,push.min}.js`, `${vnd}/push.js`));
 
