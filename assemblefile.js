@@ -34,18 +34,6 @@ var banner = [
   ''
 ].join('\n');
 
-var AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
-];
-
 var app = assemble();
 app.create('home');
 app.use(basewatch());
@@ -197,7 +185,7 @@ app.task('css:ltr', function() {
 
   return app.src(['./less/elektron.less', './less/theme-*.less'])
     .pipe(less())
-    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(autoprefixer())
     .pipe(header(banner, {
       pkg
     }))
@@ -220,7 +208,7 @@ app.task('css:rtl', function() {
   return app.src(['./less/elektron.less', './less/theme-*.less'])
     .pipe(less())
     .pipe(rtlcss())
-    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(autoprefixer())
     .pipe(header(banner, {
       pkg
     }))
