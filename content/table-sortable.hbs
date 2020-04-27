@@ -5,7 +5,7 @@ tablesorter: true
 ---
 <!-- BEGIN: .row -->
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col">
     <div class="box">
       <header class="bg-pomegranate text-white">
         <h4>TableSorter</h4>
@@ -25,7 +25,7 @@ tablesorter: true
             <h4>Basic Table</h4>
             {{> box-tools}}
           </header>
-            <div class="box-body collapse in">
+            <div class="box-body collapse show">
                 {{> table-sorter }}
             </div>
         </div>
@@ -37,7 +37,7 @@ tablesorter: true
             <h4>Bordered Table</h4>
             {{> box-tools}}
           </header>
-            <div class="box-body collapse in">
+            <div class="box-body collapse show">
                 {{> table-sorter modifier="table-bordered" }}
             </div>
         </div>
@@ -51,7 +51,7 @@ tablesorter: true
             <h4>Striped Table</h4>
             {{> box-tools}}
           </header>
-            <div class="box-body collapse in">
+            <div class="box-body collapse show">
                 {{> table-sorter modifier="table-striped" }}
             </div>
         </div>
@@ -63,7 +63,7 @@ tablesorter: true
             <h4>Hovered Table</h4>
             {{> box-tools}}
           </header>
-            <div class="box-body collapse in">
+            <div class="box-body collapse show">
                 {{> table-sorter modifier="table-hover" }}
             </div>
         </div>
@@ -78,7 +78,7 @@ tablesorter: true
             <h4>Condensed Table</h4>
             {{> box-tools}}
           </header>
-            <div class="box-body collapse in">
+            <div class="box-body collapse show">
                 {{> table-sorter modifier="table-condensed" }}
             </div>
         </div>
@@ -91,7 +91,7 @@ tablesorter: true
               <h4>Responsive Table</h4>
               {{> box-tools}}
             </header>
-            <div class="box-body collapse in">
+            <div class="box-body collapse show">
               <div class="table-responsive">
                 {{> table-sorter modifier="table-condensed" }}
               </div>

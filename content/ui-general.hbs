@@ -9,7 +9,7 @@ category: ui
         <h4>Heading</h4>
         {{> box-tools}}
       </header>
-      <div class="box-body b-t collapse in">
+      <div class="box-body b-t collapse show">
         <h1 class="text-muted">Heading 1</h1>
         <h2 class="text-primary">Heading 2</h2>
         <h3 class="text-warning">Heading 3</h3>
@@ -26,7 +26,7 @@ category: ui
         <h4>Paragraph</h4>
         {{> box-tools}}
       </header>
-      <div class="box-body b-t collapse in">
+      <div class="box-body b-t collapse show">
         <p>Default paragraph</p>
         <p class="lead">lead paragraph</p>
         <p class="text-muted">Muted paragraph</p>
@@ -48,7 +48,7 @@ category: ui
         <h4>Blockquotes</h4>
         {{> box-tools}}
       </header>
-      <div class="box-body b-t collapse in">
+      <div class="box-body b-t collapse show">
 
         <blockquote>
           <p>
@@ -67,38 +67,9 @@ category: ui
 
     <div class="box">
       <header>
-        <h5>Badges</h5>
+        <h6>Badges</h6>
         <div class="box-tools">
-          <a href="http://getbootstrap.com/components/#badges" target="_blank">Bootstrap doc</a>
-        </div>
-      </header>
-      <div class="box-body">
-        <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>Example</th>
-                <th>Markup</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <span class="badge">1</span>
-                </td>
-                <td>
-                  <code>&lt;span class="badge"&gt;1&lt;/span&gt;</code>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-    </div>
-
-    <div class="box">
-      <header>
-        <h6>Labels</h6>
-        <div class="box-tools">
-          <a href="http://getbootstrap.com/components/#labels" target="_blank">Bootstrap doc</a>
+          <a href="https://getbootstrap.com/docs/4.4/components/badge/" target="_blank">Bootstrap doc</a>
         </div>
       </header>
       <div class="box-body">
@@ -112,42 +83,66 @@ category: ui
             <tbody>
               <tr>
                 <td>
-                  <span class="label label-default">Default</span>
+                  <span class="badge badge-primary">Primary</span>
                 </td>
                 <td>
-                  <code>&lt;span class="label label-default"&gt;Default&lt;/span&gt;</code>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="label label-success">Success</span>
-                </td>
-                <td>
-                  <code>&lt;span class="label label-success"&gt;Success&lt;/span&gt;</code>
+                  <code>&lt;span class="badge badge-primary"&gt;Default&lt;/span&gt;</code>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span class="label label-warning">Warning</span>
+                  <span class="badge badge-secondary">Secondary</span>
                 </td>
                 <td>
-                  <code>&lt;span class="label label-warning"&gt;Warning&lt;/span&gt;</code>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="label label-danger">Danger</span>
-                </td>
-                <td>
-                  <code>&lt;span class="label label-danger"&gt;Danger&lt;/span&gt;</code>
+                  <code>&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;</code>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span class="label label-info">Info</span>
+                  <span class="badge badge-success">Success</span>
                 </td>
                 <td>
-                  <code>&lt;span class="label label-info"&gt;Info&lt;/span&gt;</code>
+                  <code>&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="badge badge-warning">Warning</span>
+                </td>
+                <td>
+                  <code>&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="badge badge-danger">Danger</span>
+                </td>
+                <td>
+                  <code>&lt;span class="badge badge-danger"&gt;Danger&lt;/span&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="badge badge-info">Info</span>
+                </td>
+                <td>
+                  <code>&lt;span class="badge badge-info"&gt;Info&lt;/span&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="badge badge-light">Light</span>
+                </td>
+                <td>
+                  <code>&lt;span class="badge badge-light"&gt;Light&lt;/span&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="badge badge-dark">Dark</span>
+                </td>
+                <td>
+                  <code>&lt;span class="badge badge-dark"&gt;Dark&lt;/span&gt;</code>
                 </td>
               </tr>
             </tbody>
@@ -163,7 +158,7 @@ category: ui
         <h4>List</h4>
         {{> box-tools}}
       </header>
-      <div class="box-body collapse in">
+      <div class="box-body collapse show">
 
         <h3>Unordered</h3>
         <ul>
@@ -209,7 +204,7 @@ category: ui
 
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col">
     <div class="box">
       <header>
         <h2>Progress bar</h2>
