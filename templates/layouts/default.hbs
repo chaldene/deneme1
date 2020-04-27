@@ -10,7 +10,13 @@
 
   <!-- Vendor stylesheet files. REQUIRED -->
   <!-- BEGIN: Vendor  -->
-  <link rel="stylesheet" href="../assets/css/vendor{{#if rtl}}-rtl{{/if}}.css">
+  {{css "../assets/vendor/bootstrap/css/bootstrap.min.css"}}
+  {{css "../assets/vendor/font-awesome/css/font-awesome.min.css"}}
+  {{css "../assets/vendor/animate.css/animate.min.css"}}
+  {{css "../assets/vendor/metismenu/metisMenu.min.css"}}
+  {{css "../assets/vendor/metis-canvas/metis-canvas.min.css"}}
+  {{css "../assets/vendor/loaders.css/loaders.min.css"}}
+  {{!-- <link rel="stylesheet" href="../assets/css/vendor{{#if rtl}}-rtl{{/if}}.css"> --}}
   <!-- END: core stylesheet files -->
 
   <!-- Plugin stylesheet files. OPTIONAL -->
@@ -135,7 +141,15 @@
   {{/unless}}
 
   <!-- Vendor javascript files. REQUIRED -->
-  <script src="../assets/js/vendor.js"></script>
+  {{!-- <script src="../assets/js/vendor.js"></script> --}}
+  {{js "../assets/vendor/jquery/jquery.min.js"}}
+  {{js "../assets/vendor/bootstrap/js/bootstrap.min.js"}}
+  {{js "../assets/vendor/moment/moment.min.js"}}
+  {{js "../assets/vendor/metismenu/metisMenu.min.js"}}
+  {{js "../assets/vendor/metis-canvas/metis-canvas.min.js"}}
+  {{js "../assets/vendor/screenfull/screenfull.js"}}
+  {{js "../assets/vendor/loaders.css/loaders.css.js"}}
+  {{js "../assets/vendor/in-view/in-view.min.js"}}
   <!-- END: End javascript files -->
 
   <!-- Plugin javascript files. OPTIONAL -->
